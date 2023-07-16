@@ -11,7 +11,7 @@ import SwiftUI
 struct DontForgetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NoteListView(viewModel: NoteListViewModel())
         }
     }
 }
