@@ -39,7 +39,7 @@ struct MemoLiveActivity: Widget {
                         .multilineTextAlignment(.leading)
                         .lineSpacing(6)
                         .lineLimit(3)
-                        .underline(pattern: .solid, color: Color.accentColor)
+                        .underline(pattern: .solid, color: Color("PointYellow"))
                         .frame(height: 120)
                         .padding(EdgeInsets(top: 2, leading: 24, bottom: 0, trailing: 24))
                 }
@@ -52,7 +52,7 @@ struct MemoLiveActivity: Widget {
                         .multilineTextAlignment(.leading)
                         .lineSpacing(4)
                         .lineLimit(3)
-                        .underline(pattern: .solid, color: Color.accentColor)
+                        .underline(pattern: .solid, color: Color("PointYellow"))
                         .padding(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 16))
                         .frame(height: 80)
                 }
