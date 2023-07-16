@@ -21,7 +21,7 @@ extension Memo {
     }
 
     var asContentState: ActivityContent<Activity<MemoAttributes>.ContentState> {
-        .init(state: .init(text: text), staleDate: nil)
+        .init(state: .init(text: text), staleDate: nil, relevanceScore: createdAt.timeIntervalSince1970)
     }
 
     init(from activity: Activity<MemoAttributes>) {

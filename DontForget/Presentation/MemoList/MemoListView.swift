@@ -21,6 +21,7 @@ struct MemoListView: View {
             }
         }
         .listStyle(.plain)
+        .navigationBarItems(trailing: EditButton())
         .onAppear {
             viewModel.onAppear.send()
         }
