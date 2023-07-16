@@ -24,7 +24,7 @@ final class LiveActivityMemoRepository: MemoRepository {
             .filter { $0.attributes.id == memo.id }
 
         for target in targets {
-            await target.end(nil)
+            await target.end(nil, dismissalPolicy: .immediate)
         }
     }
 }

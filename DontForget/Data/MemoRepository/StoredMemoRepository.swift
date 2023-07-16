@@ -13,27 +13,50 @@ final class StoredMemoRepository: MemoRepository {
         static let maxLength: Int = 100
     }
 
-    private var storedMemoList: [Memo] {
-        get { UserDefaults.standard.array(forKey: Constant.key) as? [Memo] ?? [] }
-        set { UserDefaults.standard.set(newValue, forKey: Constant.key) }
-    }
-
     var memoList: [Memo] {
-        return storedMemoList
+        return (try? getStoredMemoList()) ?? []
     }
 
     func createMemo(_ memo: Memo) async throws {
-        let newList = (storedMemoList + [memo])
+        let prevList = try getStoredMemoList()
+        let newList = (prevList + [memo])
             .sorted(by: { $0.id > $1.id })
             .prefix(Constant.maxLength)
 
-        storedMemoList = Array(newList)
+        try setStoredMemoList(Array(newList))
     }
 
     func deleteMemo(_ memo: Memo) async throws {
-        let newList = storedMemoList
+        let prevList = try getStoredMemoList()
+        let newList = prevList
             .filter { $0.id != memo.id }
-        
-        storedMemoList = newList
+
+        try setStoredMemoList(Array(newList))
+    }
+
+    private func getStoredMemoList() throws -> [Memo] {
+        guard let data = UserDefaults.standard.data(forKey: Constant.key) else {
+            return []
+        }
+
+        return try Array<Memo>(from: data)
+    }
+
+    private func setStoredMemoList(_ list: [Memo]) throws {
+        let data = try list.asData
+        UserDefaults.standard.set(data, forKey: Constant.key)
+    }
+
+}
+
+extension Array<Memo> {
+    init(from data: Data) throws {
+        self = try JSONDecoder().decode([Memo].self, from: data)
+    }
+
+    var asData: Data {
+        get throws {
+            try JSONEncoder().encode(self)
+        }
     }
 }

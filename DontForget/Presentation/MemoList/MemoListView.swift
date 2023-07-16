@@ -20,6 +20,7 @@ struct MemoListView: View {
                 viewModel.onMemoDelete.send(indexSet)
             }
         }
+        .listStyle(.plain)
         .onAppear {
             viewModel.onAppear.send()
         }
@@ -31,8 +32,15 @@ struct MemoView: View {
     init(memo: Memo) {
         self.memo = memo
     }
-    
+
     var body: some View {
-        Text(memo.text).padding(8)
+        VStack(alignment: .leading, spacing: 6) {
+            Text(memo.text)
+                .fontWeight(.semibold)
+            Text(memo.createdAt.formatted())
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .padding(EdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4))
     }
 }
