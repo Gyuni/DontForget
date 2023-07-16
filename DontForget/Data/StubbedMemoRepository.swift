@@ -1,5 +1,5 @@
 //
-//  StubbedMemoService.swift
+//  StubbedMemoRepository.swift
 //  DontForget
 //
 //  Created by Gyuni on 2023/07/16.
@@ -8,12 +8,10 @@
 import Foundation
 
 #if DEBUG
-class StubbedMemoService: MemoRepository {
-    private init() { }
-
-    var stubbedMemoList: [Memo]!
+class StubbedMemoRepository: MemoRepository {
+    var stubbedMemoList: (() -> [Memo])!
     var memoList: [Memo] {
-        return stubbedMemoList
+        stubbedMemoList()
     }
 
     var stubbedCreateMemo: ((Memo) async throws -> Void)!
@@ -27,4 +25,3 @@ class StubbedMemoService: MemoRepository {
     }
 }
 #endif
-

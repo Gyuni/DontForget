@@ -12,6 +12,6 @@ import SwiftUI
 struct DontForgetWidgetBundle: WidgetBundle {
     var body: some Widget {
 //        DontForgetWidget()
-        NoteLiveActivity()
+        MemoLiveActivity()
     }
 }

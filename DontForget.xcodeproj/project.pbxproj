@@ -21,14 +21,14 @@
 		53705DB72A5AA20B00D51E9E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53705DB62A5AA20B00D51E9E /* WidgetKit.framework */; };
 		53705DB92A5AA20B00D51E9E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53705DB82A5AA20B00D51E9E /* SwiftUI.framework */; };
 		53705DBC2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */; };
-		53705DBE2A5AA20B00D51E9E /* NoteLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBD2A5AA20B00D51E9E /* NoteLiveActivity.swift */; };
+		53705DBE2A5AA20B00D51E9E /* MemoLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */; };
 		53705DC02A5AA20B00D51E9E /* DontForgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBF2A5AA20B00D51E9E /* DontForgetWidget.swift */; };
 		53705DC32A5AA20C00D51E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53705DC22A5AA20C00D51E9E /* Assets.xcassets */; };
 		53705DC52A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */; };
 		53705DC62A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */; };
 		53705DC92A5AA20C00D51E9E /* DontForgetWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 53705DB52A5AA20B00D51E9E /* DontForgetWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		53705DCF2A5AC41E00D51E9E /* NoteAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DCE2A5AC41E00D51E9E /* NoteAttributes.swift */; };
-		53705DD02A5AC42900D51E9E /* NoteAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DCE2A5AC41E00D51E9E /* NoteAttributes.swift */; };
+		53705DCF2A5AC41E00D51E9E /* MemoAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */; };
+		53705DD02A5AC42900D51E9E /* MemoAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */; };
 		53A07AA92A63DCB000464336 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AA82A63DCB000464336 /* Memo.swift */; };
 		53A07AAB2A63DE3000464336 /* MemoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AAA2A63DE3000464336 /* MemoService.swift */; };
 		53A07AAE2A63DE7C00464336 /* LiveMemoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AAD2A63DE7C00464336 /* LiveMemoService.swift */; };
@@ -96,12 +96,12 @@
 		53705DB62A5AA20B00D51E9E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		53705DB82A5AA20B00D51E9E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetWidgetBundle.swift; sourceTree = "<group>"; };
-		53705DBD2A5AA20B00D51E9E /* NoteLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteLiveActivity.swift; sourceTree = "<group>"; };
+		53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoLiveActivity.swift; sourceTree = "<group>"; };
 		53705DBF2A5AA20B00D51E9E /* DontForgetWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetWidget.swift; sourceTree = "<group>"; };
 		53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DontForgetWidget.intentdefinition; sourceTree = "<group>"; };
 		53705DC22A5AA20C00D51E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53705DC42A5AA20C00D51E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53705DCE2A5AC41E00D51E9E /* NoteAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAttributes.swift; sourceTree = "<group>"; };
+		53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAttributes.swift; sourceTree = "<group>"; };
 		53A07AA82A63DCB000464336 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		53A07AAA2A63DE3000464336 /* MemoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoService.swift; sourceTree = "<group>"; };
 		53A07AAD2A63DE7C00464336 /* LiveMemoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMemoService.swift; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 			children = (
 				531689082A5A8A63008CFBC7 /* DontForgetApp.swift */,
 				53A07AB52A63E24B00464336 /* Entity */,
-				53A07AB72A63E25C00464336 /* Repository */,
-				53A07AB62A63E25200464336 /* Service */,
+				53A07AB62A63E25200464336 /* Domain */,
+				53A07AB72A63E25C00464336 /* Data */,
 				53A07AAC2A63DE6F00464336 /* 안쓸거 */,
 				5316890C2A5A8A64008CFBC7 /* Assets.xcassets */,
 				5316890E2A5A8A64008CFBC7 /* Preview Content */,
@@ -235,8 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */,
-				53705DCE2A5AC41E00D51E9E /* NoteAttributes.swift */,
-				53705DBD2A5AA20B00D51E9E /* NoteLiveActivity.swift */,
+				53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */,
+				53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */,
 				53705DBF2A5AA20B00D51E9E /* DontForgetWidget.swift */,
 				53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */,
 				53705DC22A5AA20C00D51E9E /* Assets.xcassets */,
@@ -264,24 +264,24 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		53A07AB62A63E25200464336 /* Service */ = {
+		53A07AB62A63E25200464336 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				53A07AAA2A63DE3000464336 /* MemoService.swift */,
 				53A07AAD2A63DE7C00464336 /* LiveMemoService.swift */,
 				53A07AAF2A63DE8200464336 /* ArchivedMemoService.swift */,
 				53A07AB12A63DE9000464336 /* StubbedMemoService.swift */,
+				53A07AB32A63E0F700464336 /* MemoRepository.swift */,
 			);
-			path = Service;
+			path = Domain;
 			sourceTree = "<group>";
 		};
-		53A07AB72A63E25C00464336 /* Repository */ = {
+		53A07AB72A63E25C00464336 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				53A07AB32A63E0F700464336 /* MemoRepository.swift */,
 				53A07AB82A63E4C700464336 /* StubbedMemoRepository.swift */,
 			);
-			path = Repository;
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,7 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53705DCF2A5AC41E00D51E9E /* NoteAttributes.swift in Sources */,
+				53705DCF2A5AC41E00D51E9E /* MemoAttributes.swift in Sources */,
 				53A07AB42A63E0F700464336 /* MemoRepository.swift in Sources */,
 				5316890B2A5A8A63008CFBC7 /* NoteListView.swift in Sources */,
 				53A07AA92A63DCB000464336 /* Memo.swift in Sources */,
@@ -488,11 +488,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53705DBE2A5AA20B00D51E9E /* NoteLiveActivity.swift in Sources */,
+				53705DBE2A5AA20B00D51E9E /* MemoLiveActivity.swift in Sources */,
 				53705DC02A5AA20B00D51E9E /* DontForgetWidget.swift in Sources */,
 				53705DC52A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */,
 				53705DBC2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift in Sources */,
-				53705DD02A5AC42900D51E9E /* NoteAttributes.swift in Sources */,
+				53705DD02A5AC42900D51E9E /* MemoAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

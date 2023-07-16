@@ -1,5 +1,5 @@
 //
-//  NoteLiveActivity.swift
+//  MemoLiveActivity.swift
 //  DontForgetWidget
 //
 //  Created by Gyuni on 2023/07/09.
@@ -18,9 +18,9 @@ struct Line: Shape {
     }
 }
 
-struct NoteLiveActivity: Widget {
+struct MemoLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: NoteAttributes.self) { context in
+        ActivityConfiguration(for: MemoAttributes.self) { context in
             ZStack {
                 VStack(spacing: 25) {
                     ForEach(0..<4) { index in
@@ -34,12 +34,12 @@ struct NoteLiveActivity: Widget {
                 VStack(spacing: 0) {
                     Rectangle()
                         .frame(height: 0)
-                    Text(context.attributes.text)
+                    Text(context.state.text)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
                         .lineSpacing(6)
                         .lineLimit(3)
-                        .underline(pattern: .solid, color: Color("NoteHeaderStart"))
+                        .underline(pattern: .solid, color: Color.accentColor)
                         .frame(height: 120)
                         .padding(EdgeInsets(top: 2, leading: 24, bottom: 0, trailing: 24))
                 }
@@ -47,12 +47,12 @@ struct NoteLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text(context.attributes.text)
+                    Text(context.state.text)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
                         .lineSpacing(4)
                         .lineLimit(3)
-                        .underline(pattern: .solid, color: Color("NoteHeaderStart"))
+                        .underline(pattern: .solid, color: Color.accentColor)
                         .padding(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 16))
                         .frame(height: 80)
                 }
@@ -69,8 +69,8 @@ struct NoteLiveActivity: Widget {
 }
 
 struct DontForgetWidgetLiveActivity_Previews: PreviewProvider {
-    static let attributes = NoteAttributes(text: "Lorem ipsum dolor sit amet")
-    static let contentState = NoteAttributes.ContentState(value: 3)
+    static let attributes = MemoAttributes(id: 0, createdAt: .now)
+    static let contentState = MemoAttributes.ContentState(text: "Hello World!")
 
     static var previews: some View {
         attributes

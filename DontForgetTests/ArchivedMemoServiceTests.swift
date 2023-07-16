@@ -6,30 +6,72 @@
 //
 
 import XCTest
+import Shortcuts
+@testable import DontForget
 
 final class ArchivedMemoServiceTests: XCTestCase {
+    
+    private var liveActivityMemoRepository: StubbedMemoRepository!
+    private var storedMemoRepository: StubbedMemoRepository!
+    private var service: ArchivedMemoService!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.liveActivityMemoRepository = StubbedMemoRepository()
+        self.storedMemoRepository = StubbedMemoRepository()
+        self.service = ArchivedMemoService(
+            liveActivityMemoRepository: liveActivityMemoRepository,
+            storedMemoRepository: storedMemoRepository
+        )
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.liveActivityMemoRepository = nil
+        self.storedMemoRepository = nil
+        self.service = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test_ReadMemoList() async throws {
+        //  given
+        let now = Date.now
+        let firstMemo = Memo(id: 1, text: "", createdAt: now)
+        let secondMemo = Memo(id: 2, text: "", createdAt: now)
+        let thirdMemo = Memo(id: 3, text: "", createdAt: now)
+        liveActivityMemoRepository.stubbedMemoList = { [secondMemo] }
+        storedMemoRepository.stubbedMemoList = { [thirdMemo, secondMemo, firstMemo] }
+
+        //  when
+        let expected = [thirdMemo, firstMemo]
+        let result = service.memoList
+
+        //  then
+        XCTAssertEqual(expected, result)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func test_DeleteMemoList() async throws {
+        //  given
+        let storedMemoRepositoryDeleteMemoFuncDidExecute = XCTestExpectation()
+        storedMemoRepository.stubbedDeleteMemo = { _ in
+            storedMemoRepositoryDeleteMemoFuncDidExecute.fulfill()
         }
-    }
 
+        let liveActivityMemoRepositoryDeleteMemoFuncDidExecute = XCTestExpectation().then {
+            $0.isInverted = true
+        }
+        liveActivityMemoRepository.stubbedDeleteMemo = { _ in
+            liveActivityMemoRepositoryDeleteMemoFuncDidExecute.fulfill()
+        }
+
+        //  when
+        Task {
+            try await service.deleteMemo(Memo(id: 0, text: "", createdAt: .now))
+        }
+
+        //  then
+        await fulfillment(
+            of: [storedMemoRepositoryDeleteMemoFuncDidExecute,
+                 liveActivityMemoRepositoryDeleteMemoFuncDidExecute],
+            timeout: .milliseconds(1),
+            enforceOrder: false
+        )
+    }
 }

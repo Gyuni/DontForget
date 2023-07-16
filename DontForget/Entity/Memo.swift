@@ -13,3 +13,9 @@ struct Memo: Identifiable, Codable, Equatable {
     let text: String
     let createdAt: Date
 }
+
+extension Memo {
+    var asAttributes: MemoAttributes {
+        return MemoAttributes(id: id, createdAt: createdAt)
+    }
+}
