@@ -9,7 +9,7 @@ import ActivityKit
 import Foundation
 
 struct MemoAttributes: ActivityAttributes {
-    let id: Int
+    let id: UInt64
     let createdAt: Date
 
     struct ContentState: Codable, Hashable {

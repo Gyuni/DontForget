@@ -9,6 +9,6 @@ import Foundation
 
 protocol MemoService {
     var memoList: [Memo] { get }
-    func createMemo(_ memo: Memo) async throws
+    func createMemo(containing text: String) async throws
     func deleteMemo(_ memo: Memo) async throws
 }

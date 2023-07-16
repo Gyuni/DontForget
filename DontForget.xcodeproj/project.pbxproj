@@ -38,6 +38,11 @@
 		53A07AB92A63E4C700464336 /* StubbedMemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AB82A63E4C700464336 /* StubbedMemoRepository.swift */; };
 		53A07ABB2A63E5D600464336 /* LiveMemoServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07ABA2A63E5D600464336 /* LiveMemoServiceTests.swift */; };
 		53A07ABD2A63E5DE00464336 /* ArchivedMemoServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07ABC2A63E5DE00464336 /* ArchivedMemoServiceTests.swift */; };
+		53A07ABF2A64038500464336 /* LiveActivityMemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07ABE2A64038500464336 /* LiveActivityMemoRepository.swift */; };
+		53A07AC12A6403AD00464336 /* StoredMemoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AC02A6403AD00464336 /* StoredMemoRepository.swift */; };
+		53A07AC32A6415A600464336 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AC22A6415A600464336 /* IDGenerator.swift */; };
+		53A07AC52A64162200464336 /* DateBasedIDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AC42A64162200464336 /* DateBasedIDGenerator.swift */; };
+		53A07AC72A6417AB00464336 /* StubbedUInt64IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A07AC62A6417AB00464336 /* StubbedUInt64IDGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +116,11 @@
 		53A07AB82A63E4C700464336 /* StubbedMemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedMemoRepository.swift; sourceTree = "<group>"; };
 		53A07ABA2A63E5D600464336 /* LiveMemoServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMemoServiceTests.swift; sourceTree = "<group>"; };
 		53A07ABC2A63E5DE00464336 /* ArchivedMemoServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedMemoServiceTests.swift; sourceTree = "<group>"; };
+		53A07ABE2A64038500464336 /* LiveActivityMemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityMemoRepository.swift; sourceTree = "<group>"; };
+		53A07AC02A6403AD00464336 /* StoredMemoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredMemoRepository.swift; sourceTree = "<group>"; };
+		53A07AC22A6415A600464336 /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
+		53A07AC42A64162200464336 /* DateBasedIDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateBasedIDGenerator.swift; sourceTree = "<group>"; };
+		53A07AC62A6417AB00464336 /* StubbedUInt64IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubbedUInt64IDGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,11 +277,8 @@
 		53A07AB62A63E25200464336 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				53A07AAA2A63DE3000464336 /* MemoService.swift */,
-				53A07AAD2A63DE7C00464336 /* LiveMemoService.swift */,
-				53A07AAF2A63DE8200464336 /* ArchivedMemoService.swift */,
-				53A07AB12A63DE9000464336 /* StubbedMemoService.swift */,
-				53A07AB32A63E0F700464336 /* MemoRepository.swift */,
+				53A07ACB2A64191B00464336 /* Interface */,
+				53A07ACA2A64191300464336 /* MemoService */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -279,9 +286,49 @@
 		53A07AB72A63E25C00464336 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				53A07AB82A63E4C700464336 /* StubbedMemoRepository.swift */,
+				53A07AC92A6418FC00464336 /* MemoRepository */,
+				53A07AC82A6418F400464336 /* IDGenerator */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		53A07AC82A6418F400464336 /* IDGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				53A07AC42A64162200464336 /* DateBasedIDGenerator.swift */,
+				53A07AC62A6417AB00464336 /* StubbedUInt64IDGenerator.swift */,
+			);
+			path = IDGenerator;
+			sourceTree = "<group>";
+		};
+		53A07AC92A6418FC00464336 /* MemoRepository */ = {
+			isa = PBXGroup;
+			children = (
+				53A07ABE2A64038500464336 /* LiveActivityMemoRepository.swift */,
+				53A07AC02A6403AD00464336 /* StoredMemoRepository.swift */,
+				53A07AB82A63E4C700464336 /* StubbedMemoRepository.swift */,
+			);
+			path = MemoRepository;
+			sourceTree = "<group>";
+		};
+		53A07ACA2A64191300464336 /* MemoService */ = {
+			isa = PBXGroup;
+			children = (
+				53A07AAA2A63DE3000464336 /* MemoService.swift */,
+				53A07AAD2A63DE7C00464336 /* LiveMemoService.swift */,
+				53A07AAF2A63DE8200464336 /* ArchivedMemoService.swift */,
+				53A07AB12A63DE9000464336 /* StubbedMemoService.swift */,
+			);
+			path = MemoService;
+			sourceTree = "<group>";
+		};
+		53A07ACB2A64191B00464336 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				53A07AB32A63E0F700464336 /* MemoRepository.swift */,
+				53A07AC22A6415A600464336 /* IDGenerator.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,13 +496,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A07ABF2A64038500464336 /* LiveActivityMemoRepository.swift in Sources */,
 				53705DCF2A5AC41E00D51E9E /* MemoAttributes.swift in Sources */,
+				53A07AC32A6415A600464336 /* IDGenerator.swift in Sources */,
+				53A07AC52A64162200464336 /* DateBasedIDGenerator.swift in Sources */,
 				53A07AB42A63E0F700464336 /* MemoRepository.swift in Sources */,
 				5316890B2A5A8A63008CFBC7 /* NoteListView.swift in Sources */,
+				53A07AC72A6417AB00464336 /* StubbedUInt64IDGenerator.swift in Sources */,
 				53A07AA92A63DCB000464336 /* Memo.swift in Sources */,
 				53A07AAB2A63DE3000464336 /* MemoService.swift in Sources */,
 				53A07AB92A63E4C700464336 /* StubbedMemoRepository.swift in Sources */,
 				53705DAE2A5AA1B000D51E9E /* NoteListViewModel.swift in Sources */,
+				53A07AC12A6403AD00464336 /* StoredMemoRepository.swift in Sources */,
 				53A07AB02A63DE8200464336 /* ArchivedMemoService.swift in Sources */,
 				53A07AB22A63DE9000464336 /* StubbedMemoService.swift in Sources */,
 				531689092A5A8A63008CFBC7 /* DontForgetApp.swift in Sources */,

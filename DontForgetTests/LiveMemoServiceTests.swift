@@ -20,7 +20,8 @@ final class LiveMemoServiceTests: XCTestCase {
         self.storedMemoRepository = StubbedMemoRepository()
         self.service = LiveMemoService(
             liveActivityMemoRepository: liveActivityMemoRepository,
-            storedMemoRepository: storedMemoRepository
+            storedMemoRepository: storedMemoRepository,
+            idGenerator: StubbedUInt64IDGenerator()
         )
     }
 
@@ -60,7 +61,7 @@ final class LiveMemoServiceTests: XCTestCase {
 
         //  when
         Task {
-            try await service.createMemo(Memo(id: 0, text: "", createdAt: .now))
+            try await service.createMemo(containing: "")
         }
         
         //  then

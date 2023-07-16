@@ -24,7 +24,7 @@ final class ArchivedMemoService: MemoService {
             .filter { liveActivityMemoRepository.memoList.contains($0) == false }
     }
 
-    func createMemo(_ memo: Memo) async throws {
+    func createMemo(containing _: String) async throws {
         assertionFailure("""
         메모 저장은 LiveMemoService에서 메모를 생성할 때 해야합니다.
         ArchivedMemoService에서 단독으로 저장하면 안됩니다.

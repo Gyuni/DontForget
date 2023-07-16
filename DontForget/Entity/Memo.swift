@@ -8,7 +8,7 @@
 import Foundation
 
 struct Memo: Identifiable, Codable, Equatable {
-    let id: Int
+    let id: UInt64
 
     let text: String
     let createdAt: Date
