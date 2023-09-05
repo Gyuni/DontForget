@@ -33,7 +33,7 @@ final class MemoInputViewModel: ObservableObject {
             .map { service.memoList.count >= 5 }
 
         exceededLimit
-            .map { $0 ? "Maximum 5 memos allowed" : "" }
+            .map { $0 ? "Maximum 5 memos allowed" : "A memo lasts for 8 hours" }
             .receive(on: DispatchQueue.main)
             .assign(to: \.placeholder, on: self)
             .store(in: &cancellables)

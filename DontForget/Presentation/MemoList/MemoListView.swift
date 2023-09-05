@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MemoListView: View {
     @ObservedObject var viewModel: MemoListViewModel
+    @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
         List {
@@ -23,6 +24,10 @@ struct MemoListView: View {
         .listStyle(.plain)
         .navigationBarItems(trailing: EditButton())
         .onAppear {
+            viewModel.onAppear.send()
+        }
+        .onChange(of: scenePhase) { phase in
+            guard phase == .active else { return }
             viewModel.onAppear.send()
         }
     }
@@ -42,6 +47,6 @@ struct MemoView: View {
                 .font(.caption2)
                 .foregroundColor(.secondary)
         }
-        .padding(EdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4))
+        .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
     }
 }

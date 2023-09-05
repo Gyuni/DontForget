@@ -22,13 +22,13 @@ struct MemoLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: MemoAttributes.self) { context in
             ZStack {
-                VStack(spacing: 25) {
-                    ForEach(0..<4) { index in
+                VStack(spacing: 30) {
+                    ForEach(0..<3) { index in
                         Rectangle()
                             .fill()
                             .frame(height: 1)
-                            .opacity(0.05)
-                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                            .opacity(0.1)
+                            .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
                     }
                 }
                 VStack(spacing: 0) {
@@ -47,14 +47,25 @@ struct MemoLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text(context.state.text)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
-                        .lineSpacing(4)
-                        .lineLimit(3)
-                        .underline(pattern: .solid, color: Color("PointYellow"))
-                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 16))
-                        .frame(height: 80)
+                    ZStack {
+                        VStack(spacing: 25) {
+                            ForEach(0..<3) { index in
+                                Rectangle()
+                                    .fill()
+                                    .frame(height: 1)
+                                    .opacity(0.1)
+                                    .padding(EdgeInsets(top: 0, leading: 12, bottom: 8, trailing: 12))
+                            }
+                        }
+                        Text(context.state.text)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                            .lineSpacing(4)
+                            .lineLimit(3)
+                            .underline(pattern: .solid, color: Color("PointYellow"))
+                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 16))
+                            .frame(height: 80)
+                    }
                 }
             } compactLeading: {
                 Text("✏️")

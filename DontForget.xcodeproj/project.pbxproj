@@ -19,7 +19,6 @@
 		53705DB92A5AA20B00D51E9E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53705DB82A5AA20B00D51E9E /* SwiftUI.framework */; };
 		53705DBC2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */; };
 		53705DBE2A5AA20B00D51E9E /* MemoLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */; };
-		53705DC02A5AA20B00D51E9E /* DontForgetWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBF2A5AA20B00D51E9E /* DontForgetWidget.swift */; };
 		53705DC32A5AA20C00D51E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53705DC22A5AA20C00D51E9E /* Assets.xcassets */; };
 		53705DC52A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */; };
 		53705DC62A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */; };
@@ -102,7 +101,6 @@
 		53705DB82A5AA20B00D51E9E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetWidgetBundle.swift; sourceTree = "<group>"; };
 		53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoLiveActivity.swift; sourceTree = "<group>"; };
-		53705DBF2A5AA20B00D51E9E /* DontForgetWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetWidget.swift; sourceTree = "<group>"; };
 		53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DontForgetWidget.intentdefinition; sourceTree = "<group>"; };
 		53705DC22A5AA20C00D51E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53705DC42A5AA20C00D51E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 				53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */,
 				53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */,
 				53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */,
-				53705DBF2A5AA20B00D51E9E /* DontForgetWidget.swift */,
 				53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */,
 				53705DC22A5AA20C00D51E9E /* Assets.xcassets */,
 				53705DC42A5AA20C00D51E9E /* Info.plist */,
@@ -475,6 +472,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 531688FC2A5A8A63008CFBC7;
 			productRefGroup = 531689062A5A8A63008CFBC7 /* Products */;
@@ -576,7 +574,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53705DBE2A5AA20B00D51E9E /* MemoLiveActivity.swift in Sources */,
-				53705DC02A5AA20B00D51E9E /* DontForgetWidget.swift in Sources */,
 				53705DC52A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */,
 				53705DBC2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift in Sources */,
 				53705DD02A5AC42900D51E9E /* MemoAttributes.swift in Sources */,
@@ -731,6 +728,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Don't Forget";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -745,9 +743,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gyuni.DontForget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -764,6 +765,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Don't Forget";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -778,9 +780,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gyuni.DontForget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
