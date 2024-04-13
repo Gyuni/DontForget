@@ -11,6 +11,7 @@ import SwiftUI
 
 struct MemoInputView: View {
     @ObservedObject var viewModel: MemoInputViewModel
+    @FocusState var isFocused
 
     var body: some View {
         VStack {
@@ -24,6 +25,7 @@ struct MemoInputView: View {
                     TextField(viewModel.placeholder, text: $viewModel.input, axis: .vertical)
                         .textFieldStyle(.plain)
                         .lineLimit(5)
+                        .focused($isFocused)
                 }
                 .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
                 .background(Color(uiColor: .secondarySystemBackground))
@@ -38,7 +40,9 @@ struct MemoInputView: View {
                 .disabled(viewModel.writeButtonIsDisabled)
             }
             .padding()
-        }.onAppear {
+        }
+        .sync($viewModel.isFocused, with: _isFocused)
+        .onAppear {
             viewModel.onAppear.send()
         }
     }

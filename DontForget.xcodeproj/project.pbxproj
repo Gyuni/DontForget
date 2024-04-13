@@ -13,6 +13,7 @@
 		5316891A2A5A8A64008CFBC7 /* DontForgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531689192A5A8A64008CFBC7 /* DontForgetTests.swift */; };
 		531689242A5A8A64008CFBC7 /* DontForgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531689232A5A8A64008CFBC7 /* DontForgetUITests.swift */; };
 		531689262A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531689252A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift */; };
+		532B3D312BCAEDB30048E436 /* View+syncFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B3D302BCAEDB30048E436 /* View+syncFocusState.swift */; };
 		53705DAA2A5AA14900D51E9E /* Pylon in Frameworks */ = {isa = PBXBuildFile; productRef = 53705DA92A5AA14900D51E9E /* Pylon */; };
 		53705DAC2A5AA14B00D51E9E /* PylonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 53705DAB2A5AA14B00D51E9E /* PylonUI */; };
 		53705DB72A5AA20B00D51E9E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53705DB62A5AA20B00D51E9E /* WidgetKit.framework */; };
@@ -93,6 +94,7 @@
 		5316891F2A5A8A64008CFBC7 /* DontForgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DontForgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		531689232A5A8A64008CFBC7 /* DontForgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetUITests.swift; sourceTree = "<group>"; };
 		531689252A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		532B3D302BCAEDB30048E436 /* View+syncFocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+syncFocusState.swift"; sourceTree = "<group>"; };
 		53705DA72A5AA12900D51E9E /* Pylon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Pylon; path = ../Pylon; sourceTree = "<group>"; };
 		53705DB52A5AA20B00D51E9E /* DontForgetWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DontForgetWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		53705DB62A5AA20B00D51E9E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -192,6 +194,7 @@
 				53A07AB72A63E25C00464336 /* Data */,
 				53A07AB62A63E25200464336 /* Domain */,
 				53A07ACC2A64207C00464336 /* Presentation */,
+				532B3D2D2BCAED920048E436 /* SwiftUIExtensions */,
 				5316890C2A5A8A64008CFBC7 /* Assets.xcassets */,
 				5316890E2A5A8A64008CFBC7 /* Preview Content */,
 			);
@@ -223,6 +226,14 @@
 				531689252A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift */,
 			);
 			path = DontForgetUITests;
+			sourceTree = "<group>";
+		};
+		532B3D2D2BCAED920048E436 /* SwiftUIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				532B3D302BCAEDB30048E436 /* View+syncFocusState.swift */,
+			);
+			path = SwiftUIExtensions;
 			sourceTree = "<group>";
 		};
 		53705DA62A5AA12900D51E9E /* Packages */ = {
@@ -524,6 +535,7 @@
 			files = (
 				53A07ABF2A64038500464336 /* LiveActivityMemoRepository.swift in Sources */,
 				53705DCF2A5AC41E00D51E9E /* MemoAttributes.swift in Sources */,
+				532B3D312BCAEDB30048E436 /* View+syncFocusState.swift in Sources */,
 				53A07AC32A6415A600464336 /* IDGenerator.swift in Sources */,
 				53A07AC52A64162200464336 /* DateBasedIDGenerator.swift in Sources */,
 				53A07AB42A63E0F700464336 /* MemoRepository.swift in Sources */,

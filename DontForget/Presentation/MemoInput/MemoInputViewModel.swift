@@ -7,10 +7,12 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class MemoInputViewModel: ObservableObject {
     private let service: MemoService
 
+    @Published var isFocused: Bool = false
     @Published var input: String = ""
     @Published var placeholder: String = ""
     @Published var writeButtonIsDisabled: Bool = true
@@ -25,6 +27,12 @@ final class MemoInputViewModel: ObservableObject {
 
     init(service: MemoService) {
         self.service = service
+
+        onAppear.first()
+            .sink(receiveValue: { [weak self] in
+                self?.isFocused = true
+            })
+            .store(in: &cancellables)
 
         let exceededLimit = onAppear
             .merge(with: memoDidWritten)
