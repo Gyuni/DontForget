@@ -20,8 +20,6 @@
 		53705DBC2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */; };
 		53705DBE2A5AA20B00D51E9E /* MemoLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */; };
 		53705DC32A5AA20C00D51E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53705DC22A5AA20C00D51E9E /* Assets.xcassets */; };
-		53705DC52A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */; };
-		53705DC62A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */; };
 		53705DC92A5AA20C00D51E9E /* DontForgetWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 53705DB52A5AA20B00D51E9E /* DontForgetWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		53705DCF2A5AC41E00D51E9E /* MemoAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */; };
 		53705DD02A5AC42900D51E9E /* MemoAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */; };
@@ -101,7 +99,6 @@
 		53705DB82A5AA20B00D51E9E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetWidgetBundle.swift; sourceTree = "<group>"; };
 		53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoLiveActivity.swift; sourceTree = "<group>"; };
-		53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DontForgetWidget.intentdefinition; sourceTree = "<group>"; };
 		53705DC22A5AA20C00D51E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53705DC42A5AA20C00D51E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAttributes.swift; sourceTree = "<group>"; };
@@ -251,7 +248,6 @@
 				53705DBB2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift */,
 				53705DCE2A5AC41E00D51E9E /* MemoAttributes.swift */,
 				53705DBD2A5AA20B00D51E9E /* MemoLiveActivity.swift */,
-				53705DC12A5AA20B00D51E9E /* DontForgetWidget.intentdefinition */,
 				53705DC22A5AA20C00D51E9E /* Assets.xcassets */,
 				53705DC42A5AA20C00D51E9E /* Info.plist */,
 			);
@@ -544,7 +540,6 @@
 				53A07AAE2A63DE7C00464336 /* LiveMemoService.swift in Sources */,
 				53A07AD02A64247700464336 /* MemoListViewModel.swift in Sources */,
 				53A07AD92A6441E100464336 /* MainView.swift in Sources */,
-				53705DC62A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */,
 				53A07ACE2A64209500464336 /* MemoListView.swift in Sources */,
 				53A07ADB2A6441FD00464336 /* MainViewModel.swift in Sources */,
 			);
@@ -574,7 +569,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53705DBE2A5AA20B00D51E9E /* MemoLiveActivity.swift in Sources */,
-				53705DC52A5AA20C00D51E9E /* DontForgetWidget.intentdefinition in Sources */,
 				53705DBC2A5AA20B00D51E9E /* DontForgetWidgetBundle.swift in Sources */,
 				53705DD02A5AC42900D51E9E /* MemoAttributes.swift in Sources */,
 			);
