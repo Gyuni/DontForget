@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LiveMemoService: MemoService {
+final class LiveMemoService: MemoCreateService, MemoReadService, MemoDeleteService {
     private let liveActivityMemoRepository: MemoRepository
     private let storedMemoRepository: MemoRepository
     private let idGenerator: any IDGenerator<UInt64>
@@ -26,7 +26,11 @@ final class LiveMemoService: MemoService {
         return liveActivityMemoRepository.memoList
     }
 
-    func createMemo(containing text: String) async throws {
+    var canCreate: Bool {
+        memoList.count >= 5 
+    }
+
+    func createMemo(text: String) async throws {
         let id = await idGenerator.generate()
         let memo = Memo(id: id, text: text, createdAt: .now)
 

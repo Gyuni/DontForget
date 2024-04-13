@@ -10,44 +10,121 @@ import Combine
 import Shortcuts
 
 final class MemoListViewModel: ObservableObject {
-    private let service: MemoService
+    private let createService: MemoCreateService
+    private let readService: MemoReadService
+    private let deleteService: MemoDeleteService
+    private let clipboardService: ClipboardService
+    private let hapticFeedbackService: HapticFeedbackService
 
     @Published var memoList: [Memo] = []
+    @Published var isDuplicateContextMenuDisabled: Bool = true
 
     let onAppear = PassthroughSubject<Void, Never>()
     let memoDidWritten = PassthroughSubject<Void, Never>()
     let memoDidDeleted = PassthroughSubject<Void, Never>()
-    let onMemoDelete = PassthroughSubject<IndexSet, Never>()
+    let onMemoSwipeDelete = PassthroughSubject<IndexSet, Never>()
+
+    let onCopyContextMenuTap = PassthroughSubject<Memo, Never>()
+    let onDuplicateContextMenuTap = PassthroughSubject<Memo, Never>()
+    let onDeleteContextMenuTap = PassthroughSubject<Memo, Never>()
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(service: MemoService) {
-        self.service = service
+    init(
+        createService: MemoCreateService,
+        readService: MemoReadService,
+        deleteService: MemoDeleteService,
+        clipboardService: ClipboardService,
+        hapticFeedbackService: HapticFeedbackService
+    ) {
+        self.createService = createService
+        self.readService = readService
+        self.deleteService = deleteService
+        self.clipboardService = clipboardService
+        self.hapticFeedbackService = hapticFeedbackService
 
-        onAppear
+        let memoListDidChanged = onAppear
             .merge(with: memoDidWritten)
             .merge(with: memoDidDeleted)
-            .map { service.memoList }
+            .share()
+        
+        memoListDidChanged
+            .map { readService.memoList }
             .receive(on: DispatchQueue.main)
             .assign(to: \.memoList, on: self)
             .store(in: &cancellables)
 
-        onMemoDelete
+        memoListDidChanged
+            .map { createService.canCreate }
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isDuplicateContextMenuDisabled, on: self)
+            .store(in: &cancellables)
+
+        onMemoSwipeDelete
             .sink(receiveValue: { [weak self] indexSet in
-                self?.deleteMemo(at: indexSet)
+                self?.deleteMemos(at: indexSet)
+            })
+            .store(in: &cancellables)
+
+        onCopyContextMenuTap
+            .sink(receiveValue: { [weak self] memo in
+                self?.copyMemoToClipboard(memo)
+            })
+            .store(in: &cancellables)
+
+        onDuplicateContextMenuTap
+            .sink(receiveValue: { [weak self] memo in
+                self?.createMemo(text: memo.text)
+            })
+            .store(in: &cancellables)
+
+        onDeleteContextMenuTap
+            .sink(receiveValue: { [weak self] memo in
+                self?.deleteMemo(memo)
             })
             .store(in: &cancellables)
     }
 
-    private func deleteMemo(at indexSet: IndexSet) {
+    private func createMemo(text: String) {
+        Task {
+            do {
+                try await createService.createMemo(text: text)
+                hapticFeedbackService.generateSuccessFeedback()
+            } catch {
+                
+            }
+
+            memoDidWritten.send()
+        }
+    }
+
+    private func deleteMemos(at indexSet: IndexSet) {
         let targets: [Memo] = Array(indexSet).compactMap { memoList[safe: $0] }
 
         Task {
             for target in targets {
-                try? await service.deleteMemo(target)
+                try? await deleteService.deleteMemo(target)
             }
 
             memoDidDeleted.send()
+        }
+    }
+
+    private func deleteMemo(_ memo: Memo) {
+        Task {
+            try? await deleteService.deleteMemo(memo)
+            memoDidDeleted.send()
+        }
+    }
+
+    private func copyMemoToClipboard(_ memo: Memo) {
+        Task {
+            do {
+                try await clipboardService.copy(text: memo.text)
+                hapticFeedbackService.generateSuccessFeedback()
+            } catch {
+                
+            }
         }
     }
 }

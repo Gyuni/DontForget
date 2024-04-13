@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 
 final class MemoInputViewModel: ObservableObject {
-    private let service: MemoService
+    private let createService: MemoCreateService
+    private let readService: MemoReadService
 
     @Published var isFocused: Bool = false
     @Published var input: String = ""
@@ -25,8 +26,12 @@ final class MemoInputViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(service: MemoService) {
-        self.service = service
+    init(
+        createService: MemoCreateService,
+        readService: MemoReadService
+    ) {
+        self.createService = createService
+        self.readService = readService
 
         onAppear.first()
             .sink(receiveValue: { [weak self] in
@@ -38,7 +43,7 @@ final class MemoInputViewModel: ObservableObject {
             .merge(with: memoDidWritten)
             .merge(with: memoDidDeleted)
             .merge(with: onAppear)
-            .map { service.memoList.count >= 5 }
+            .map { createService.canCreate }
 
         exceededLimit
             .map { $0 ? "Maximum 5 memos allowed" : "A memo lasts for 8 hours" }
@@ -71,7 +76,7 @@ final class MemoInputViewModel: ObservableObject {
 
     private func writeMemo() {
         Task {
-            try? await service.createMemo(containing: input)
+            try? await createService.createMemo(text: input)
             memoDidWritten.send()
         }
     }

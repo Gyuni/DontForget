@@ -11,6 +11,8 @@ import SwiftUI
 struct DontForgetApp: App {
     private let liveActivityMemoRepository = LiveActivityMemoRepository()
     private let storedMemoRepository = StoredMemoRepository()
+    private let uiPasteBoardService = UIPasteBoardService()
+    private let notificationHapticFeedbackService = NotificationHapticFeedbackService()
     private let idGenerator = DateBasedIDGenerator()
 
     var body: some Scene {
@@ -26,10 +28,15 @@ struct DontForgetApp: App {
                     liveActivityMemoRepository: liveActivityMemoRepository,
                     storedMemoRepository: storedMemoRepository
                 )
-                
+
                 let viewModel = MainViewModel(
-                    liveMemoService: liveMemoService,
-                    archivedMemoService: archivedMemoService
+                    liveMemoCreateService: liveMemoService,
+                    liveMemoReadService: liveMemoService,
+                    liveMemoDeleteService: liveMemoService,
+                    archivedMemoReadService: archivedMemoService,
+                    archivedMemoDeleteService: archivedMemoService,
+                    clipboardService: uiPasteBoardService,
+                    hapticFeedbackService: notificationHapticFeedbackService
                 )
 
                 MainView(viewModel: viewModel)

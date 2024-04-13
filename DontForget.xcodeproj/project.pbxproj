@@ -14,6 +14,10 @@
 		531689242A5A8A64008CFBC7 /* DontForgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531689232A5A8A64008CFBC7 /* DontForgetUITests.swift */; };
 		531689262A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531689252A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift */; };
 		532B3D312BCAEDB30048E436 /* View+syncFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B3D302BCAEDB30048E436 /* View+syncFocusState.swift */; };
+		532B3D342BCAFA730048E436 /* ClipboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B3D332BCAFA730048E436 /* ClipboardService.swift */; };
+		532B3D362BCAFB080048E436 /* UIPasteBoardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B3D352BCAFB080048E436 /* UIPasteBoardService.swift */; };
+		532B3D392BCAFCBB0048E436 /* HapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B3D382BCAFCBB0048E436 /* HapticFeedbackService.swift */; };
+		532B3D3B2BCAFD340048E436 /* NotificationHapticFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532B3D3A2BCAFD340048E436 /* NotificationHapticFeedbackService.swift */; };
 		53705DAA2A5AA14900D51E9E /* Pylon in Frameworks */ = {isa = PBXBuildFile; productRef = 53705DA92A5AA14900D51E9E /* Pylon */; };
 		53705DAC2A5AA14B00D51E9E /* PylonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 53705DAB2A5AA14B00D51E9E /* PylonUI */; };
 		53705DB72A5AA20B00D51E9E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53705DB62A5AA20B00D51E9E /* WidgetKit.framework */; };
@@ -95,6 +99,10 @@
 		531689232A5A8A64008CFBC7 /* DontForgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetUITests.swift; sourceTree = "<group>"; };
 		531689252A5A8A64008CFBC7 /* DontForgetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		532B3D302BCAEDB30048E436 /* View+syncFocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+syncFocusState.swift"; sourceTree = "<group>"; };
+		532B3D332BCAFA730048E436 /* ClipboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardService.swift; sourceTree = "<group>"; };
+		532B3D352BCAFB080048E436 /* UIPasteBoardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPasteBoardService.swift; sourceTree = "<group>"; };
+		532B3D382BCAFCBB0048E436 /* HapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackService.swift; sourceTree = "<group>"; };
+		532B3D3A2BCAFD340048E436 /* NotificationHapticFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHapticFeedbackService.swift; sourceTree = "<group>"; };
 		53705DA72A5AA12900D51E9E /* Pylon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Pylon; path = ../Pylon; sourceTree = "<group>"; };
 		53705DB52A5AA20B00D51E9E /* DontForgetWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DontForgetWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		53705DB62A5AA20B00D51E9E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -236,6 +244,24 @@
 			path = SwiftUIExtensions;
 			sourceTree = "<group>";
 		};
+		532B3D322BCAFA570048E436 /* ClipboardService */ = {
+			isa = PBXGroup;
+			children = (
+				532B3D332BCAFA730048E436 /* ClipboardService.swift */,
+				532B3D352BCAFB080048E436 /* UIPasteBoardService.swift */,
+			);
+			path = ClipboardService;
+			sourceTree = "<group>";
+		};
+		532B3D372BCAFCA20048E436 /* HapticFeedbackService */ = {
+			isa = PBXGroup;
+			children = (
+				532B3D382BCAFCBB0048E436 /* HapticFeedbackService.swift */,
+				532B3D3A2BCAFD340048E436 /* NotificationHapticFeedbackService.swift */,
+			);
+			path = HapticFeedbackService;
+			sourceTree = "<group>";
+		};
 		53705DA62A5AA12900D51E9E /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +304,8 @@
 			children = (
 				53A07ACB2A64191B00464336 /* Interface */,
 				53A07ACA2A64191300464336 /* MemoService */,
+				532B3D322BCAFA570048E436 /* ClipboardService */,
+				532B3D372BCAFCA20048E436 /* HapticFeedbackService */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -533,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532B3D3B2BCAFD340048E436 /* NotificationHapticFeedbackService.swift in Sources */,
 				53A07ABF2A64038500464336 /* LiveActivityMemoRepository.swift in Sources */,
 				53705DCF2A5AC41E00D51E9E /* MemoAttributes.swift in Sources */,
 				532B3D312BCAEDB30048E436 /* View+syncFocusState.swift in Sources */,
@@ -545,13 +574,16 @@
 				53A07AAB2A63DE3000464336 /* MemoService.swift in Sources */,
 				53A07AB92A63E4C700464336 /* StubbedMemoRepository.swift in Sources */,
 				53A07AD62A642C3900464336 /* MemoInputViewModel.swift in Sources */,
+				532B3D362BCAFB080048E436 /* UIPasteBoardService.swift in Sources */,
 				53A07AC12A6403AD00464336 /* StoredMemoRepository.swift in Sources */,
 				53A07AB02A63DE8200464336 /* ArchivedMemoService.swift in Sources */,
 				53A07AB22A63DE9000464336 /* StubbedMemoService.swift in Sources */,
 				531689092A5A8A63008CFBC7 /* DontForgetApp.swift in Sources */,
 				53A07AAE2A63DE7C00464336 /* LiveMemoService.swift in Sources */,
 				53A07AD02A64247700464336 /* MemoListViewModel.swift in Sources */,
+				532B3D342BCAFA730048E436 /* ClipboardService.swift in Sources */,
 				53A07AD92A6441E100464336 /* MainView.swift in Sources */,
+				532B3D392BCAFCBB0048E436 /* HapticFeedbackService.swift in Sources */,
 				53A07ACE2A64209500464336 /* MemoListView.swift in Sources */,
 				53A07ADB2A6441FD00464336 /* MainViewModel.swift in Sources */,
 			);
@@ -727,6 +759,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DontForget/Preview Content\"";
@@ -749,6 +782,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gyuni.DontForget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -764,6 +798,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DontForget/Preview Content\"";
@@ -786,6 +821,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gyuni.DontForget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

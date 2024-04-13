@@ -8,14 +8,19 @@
 import Foundation
 
 #if DEBUG
-final class StubbedMemoService: MemoService {
+final class StubbedMemoService: MemoCreateService, MemoReadService, MemoDeleteService {
     var stubbedMemoList: (() -> [Memo])!
     var memoList: [Memo] {
         stubbedMemoList()
     }
+    
+    var stubbedCanCreate: (() -> Bool)!
+    var canCreate: Bool {
+        stubbedCanCreate()
+    }
 
     var stubbedCreateMemo: ((String) async throws -> Void)!
-    func createMemo(containing text: String) async throws {
+    func createMemo(text: String) async throws {
         try await stubbedCreateMemo(text)
     }
 

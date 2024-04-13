@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ArchivedMemoService: MemoService {
+final class ArchivedMemoService: MemoReadService, MemoDeleteService {
     private let liveActivityMemoRepository: MemoRepository
     private let storedMemoRepository: MemoRepository
 
@@ -22,13 +22,6 @@ final class ArchivedMemoService: MemoService {
     var memoList: [Memo] {
         return storedMemoRepository.memoList
             .filter { liveActivityMemoRepository.memoList.contains($0) == false }
-    }
-
-    func createMemo(containing _: String) async throws {
-        assertionFailure("""
-        메모 저장은 LiveMemoService에서 메모를 생성할 때 해야합니다.
-        ArchivedMemoService에서 단독으로 저장하면 안됩니다.
-        """)
     }
 
     func deleteMemo(_ memo: Memo) async throws {

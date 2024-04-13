@@ -27,9 +27,13 @@ enum MemoListType {
 
 final class MainViewModel: ObservableObject {
     @Published var selectedTab: MemoListType = .live
-    
-    private let liveMemoService: MemoService
-    private let archivedMemoService: MemoService
+
+    private let liveMemoCreateService: MemoCreateService
+    private let liveMemoReadService: MemoReadService
+    private let liveMemoDeleteService: MemoDeleteService
+    private let archivedMemoReadService: MemoReadService
+    private let archivedMemoDeleteService: MemoDeleteService
+    private let clipboardService: ClipboardService
 
     let liveMemoListViewModel: MemoListViewModel
     let archivedMemoListViewModel: MemoListViewModel
@@ -38,15 +42,39 @@ final class MainViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
 
     init(
-        liveMemoService: MemoService,
-        archivedMemoService: MemoService
+        liveMemoCreateService: MemoCreateService,
+        liveMemoReadService: MemoReadService,
+        liveMemoDeleteService: MemoDeleteService,
+        archivedMemoReadService: MemoReadService,
+        archivedMemoDeleteService: MemoDeleteService,
+        clipboardService: ClipboardService,
+        hapticFeedbackService: HapticFeedbackService
     ) {
-        self.liveMemoService = liveMemoService
-        self.archivedMemoService = archivedMemoService
+        self.liveMemoCreateService = liveMemoCreateService
+        self.liveMemoReadService = liveMemoReadService
+        self.liveMemoDeleteService = liveMemoDeleteService
+        self.archivedMemoReadService = archivedMemoReadService
+        self.archivedMemoDeleteService = archivedMemoDeleteService
+        self.clipboardService = clipboardService
 
-        self.liveMemoListViewModel = MemoListViewModel(service: liveMemoService)
-        self.archivedMemoListViewModel = MemoListViewModel(service: archivedMemoService)
-        self.memoInputViewModel = MemoInputViewModel(service: liveMemoService)
+        self.liveMemoListViewModel = MemoListViewModel(
+            createService: liveMemoCreateService,
+            readService: liveMemoReadService,
+            deleteService: liveMemoDeleteService,
+            clipboardService: clipboardService,
+            hapticFeedbackService: hapticFeedbackService
+        )
+        self.archivedMemoListViewModel = MemoListViewModel(
+            createService: liveMemoCreateService,
+            readService: archivedMemoReadService,
+            deleteService: archivedMemoDeleteService,
+            clipboardService: clipboardService,
+            hapticFeedbackService: hapticFeedbackService
+        )
+        self.memoInputViewModel = MemoInputViewModel(
+            createService: liveMemoCreateService,
+            readService: liveMemoReadService
+        )
 
         liveMemoListViewModel.memoDidDeleted
             .merge(with: archivedMemoListViewModel.memoDidDeleted)

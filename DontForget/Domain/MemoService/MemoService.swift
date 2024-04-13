@@ -7,8 +7,15 @@
 
 import Foundation
 
-protocol MemoService {
+protocol MemoReadService {
     var memoList: [Memo] { get }
-    func createMemo(containing text: String) async throws
+}
+
+protocol MemoCreateService {
+    var canCreate: Bool { get }
+    func createMemo(text: String) async throws
+}
+
+protocol MemoDeleteService {
     func deleteMemo(_ memo: Memo) async throws
 }
