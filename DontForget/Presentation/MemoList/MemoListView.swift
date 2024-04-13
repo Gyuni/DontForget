@@ -16,9 +16,26 @@ struct MemoListView: View {
         List {
             ForEach(viewModel.memoList) { memo in
                 MemoView(memo: memo)
+                    .contextMenu(menuItems: {
+                        Button {
+                            viewModel.onCopyContextMenuTap.send(memo)
+                        } label: {
+                            Label("Copy", systemImage: "doc.on.doc")
+                        }
+                        Button {
+                            viewModel.onDuplicateContextMenuTap.send(memo)
+                        } label: {
+                            Label("Duplicate", systemImage: "pencil")
+                        }.disabled(viewModel.isDuplicateContextMenuDisabled)
+                        Button(role: .destructive) {
+                            viewModel.onDeleteContextMenuTap.send(memo)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    })
             }
             .onDelete { indexSet in
-                viewModel.onMemoDelete.send(indexSet)
+                viewModel.onMemoSwipeDelete.send(indexSet)
             }
         }
         .listStyle(.plain)

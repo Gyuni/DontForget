@@ -61,7 +61,7 @@ final class LiveMemoServiceTests: XCTestCase {
 
         //  when
         Task {
-            try await service.createMemo(containing: "")
+            try await service.createMemo(text: "")
         }
         
         //  then
