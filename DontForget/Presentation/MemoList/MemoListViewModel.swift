@@ -27,6 +27,8 @@ final class MemoListViewModel: ObservableObject {
     let onCopyContextMenuTap = PassthroughSubject<Memo, Never>()
     let onDuplicateContextMenuTap = PassthroughSubject<Memo, Never>()
     let onDeleteContextMenuTap = PassthroughSubject<Memo, Never>()
+    
+    let onDeleteAllButtonTap = PassthroughSubject<Void, Never>()
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -83,6 +85,12 @@ final class MemoListViewModel: ObservableObject {
                 self?.deleteMemo(memo)
             })
             .store(in: &cancellables)
+
+        onDeleteAllButtonTap
+            .sink(receiveValue: { [weak self] in
+                self?.deleteAllMemos()
+            })
+            .store(in: &cancellables)
     }
 
     private func createMemo(text: String) {
@@ -96,6 +104,10 @@ final class MemoListViewModel: ObservableObject {
 
             memoDidWritten.send()
         }
+    }
+
+    private func deleteAllMemos() {
+        deleteMemos(at: IndexSet(integersIn: memoList.indices))
     }
 
     private func deleteMemos(at indexSet: IndexSet) {

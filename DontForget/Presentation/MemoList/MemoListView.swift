@@ -11,6 +11,7 @@ import SwiftUI
 struct MemoListView: View {
     @ObservedObject var viewModel: MemoListViewModel
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.editMode) var editMode
 
     var body: some View {
         List {
@@ -39,7 +40,17 @@ struct MemoListView: View {
             }
         }
         .listStyle(.plain)
-        .navigationBarItems(trailing: EditButton())
+        .toolbar {
+            if editMode?.wrappedValue.isEditing == true {
+                Button(role: .destructive) {
+                    viewModel.onDeleteAllButtonTap.send(())
+                } label: {
+                    Text("Delete All")
+                }
+            }
+            
+            EditButton()
+        }
         .onAppear {
             viewModel.onAppear.send()
         }
